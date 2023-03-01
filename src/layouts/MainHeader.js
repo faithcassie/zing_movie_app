@@ -35,6 +35,7 @@ function MainHeader() {
             justifyItems: "space-between",
             marginTop: "20px",
             mx: "auto",
+
             width: "80%",
             justifyContent: "center",
             textAlign: "center",

@@ -1,5 +1,6 @@
 import { Box } from "@mui/system";
 import React, { useContext, useEffect, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import DropdownSelect from "../components/DropdownSelect";
 import FeatureTV from "../components/FeatureTV";
 import { authContext } from "../contexts/AuthContext";
@@ -7,6 +8,10 @@ import { authContext } from "../contexts/AuthContext";
 function TvshowPage() {
   const { api } = useContext(authContext);
   const [movieList, setMovieList] = useState(null);
+  const params = useParams();
+  const location = useLocation(); // "/tvshow" "/movie";
+  console.log(location);
+  const { type } = params;
   useEffect(() => {
     fetch(
       `https://api.themoviedb.org/3/genre/movie/list?api_key=${api.key}&language=en-US`

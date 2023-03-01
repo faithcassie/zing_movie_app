@@ -1,4 +1,4 @@
-/* .navbar {
-    flex-direction: column;
-} */
-
+.navbar {
+    padding-left: 0;
+    padding-right: 0;
+}

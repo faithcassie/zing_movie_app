@@ -1,7 +1,7 @@
 import { Button, Icon, Modal, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useContext, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { authContext } from "../contexts/AuthContext";
 import MovieIcon from "@mui/icons-material/Movie";
 import PollIcon from "@mui/icons-material/Poll";
@@ -28,8 +28,8 @@ const style = {
   //   },
 };
 function MovieModal() {
-  const location = useLocation();
-  console.log(location);
+  const params = useParams();
+  const { id } = params;
   const { api } = useContext(authContext);
   const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
@@ -38,7 +38,7 @@ function MovieModal() {
   };
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3${location.pathname}?api_key=${api.key}&language=en-US`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${api.key}&language=en-US`
     )
       .then((res) => {
         return res.json();
