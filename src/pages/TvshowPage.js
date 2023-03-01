@@ -10,12 +10,11 @@ function TvshowPage() {
   const [movieList, setMovieList] = useState(null);
   const params = useParams();
   const location = useLocation(); // "/tvshow" "/movie";
-  console.log(location);
   const { type } = params;
+  let endpoint = location.pathname.slice(1);
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/genre/movie/list?api_key=${api.key}&language=en-US`
-    )
+    let url = `https://api.themoviedb.org/3/genre/${endpoint}/list?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`;
+    fetch(url)
       .then((res) => {
         return res.json();
       })

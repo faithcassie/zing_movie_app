@@ -7,7 +7,9 @@ function PopularList() {
   const { api } = useContext(authContext);
   const [popularMovie, setPopularMovie] = useState(null);
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/trending/all/week?api_key=${api.key}`)
+    fetch(
+      `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_APIKEY}`
+    )
       .then((res) => {
         return res.json();
       })

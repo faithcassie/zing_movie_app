@@ -9,19 +9,6 @@ function SearchContainer() {
   const [searchQuery, setSearchQuery] = useState("");
   // const [searchResult, setSearchResult] = useState("");
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   fetch(
-  //     `https://api.themoviedb.org/3/search/movie?api_key=${api.key}&language=en-US&query=${searchQuery}&page=1`
-  //   )
-  //     .then((res) => {
-  //       return res.json();
-  //     })
-  //     .then((data) => {
-  //       setSearchResult(data);
-  //       console.log(data);
-  //     });
-  // }, [searchQuery]);
-  // console.log(searchResult);
   const HandleSearchButton = () => {
     if (searchQuery) {
       const params = [[`q`, searchQuery]];

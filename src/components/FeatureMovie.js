@@ -7,17 +7,19 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useContext, useEffect, useState } from "react";
-import { authContext } from "../contexts/AuthContext";
+// import { authContext } from "../contexts/AuthContext";
 import TextTruncate from "react-text-truncate";
 import classes from "./FeatureMovie.module.css";
 import MovieIcon from "@mui/icons-material/Movie";
 import PollIcon from "@mui/icons-material/Poll";
 
 function FeatureMovie() {
-  const { api } = useContext(authContext);
+  // const { api } = useContext(authContext);
   const [featureMovie, setFeatureMovie] = useState(null);
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${api.key}`)
+    fetch(
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_APIKEY}`
+    )
       .then((res) => {
         return res.json();
       })

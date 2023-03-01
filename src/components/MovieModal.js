@@ -30,7 +30,7 @@ const style = {
 function MovieModal() {
   const params = useParams();
   const { id } = params;
-  const { api } = useContext(authContext);
+  // const { api } = useContext(authContext);
   const navigate = useNavigate();
   const [movie, setMovie] = useState(null);
   const handleClose = () => {
@@ -38,7 +38,7 @@ function MovieModal() {
   };
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${api.key}&language=en-US`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`
     )
       .then((res) => {
         return res.json();

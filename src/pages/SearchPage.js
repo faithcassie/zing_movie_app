@@ -2,19 +2,19 @@ import { Card, CardMedia, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Feature from "../components/Feature";
-import { authContext } from "../contexts/AuthContext";
+// import Feature from "../components/Feature";
+// import { authContext } from "../contexts/AuthContext";
 
 function SearchPage() {
   const location = useLocation();
   //   console.log(location);
   const query = new URLSearchParams(location.search);
   const q = query.get("q"); // "avatar"
-  const { api } = useContext(authContext);
+  //   const { api } = useContext(authContext);
   const [searchResult, setSearchResult] = useState("");
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/search/multi?api_key=${api.key}&language=en-US&query=${q}&page=1&include_adult=false`
+      `https://api.themoviedb.org/3/search/multi?api_key=${process.env.REACT_APP_APIKEY}&language=en-US&query=${q}&page=1&include_adult=false`
     )
       .then((res) => {
         return res.json();

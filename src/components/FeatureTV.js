@@ -7,17 +7,19 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useContext, useEffect, useState } from "react";
-import { authContext } from "../contexts/AuthContext";
+// import { authContext } from "../contexts/AuthContext";
 import TextTruncate from "react-text-truncate";
 import classes from "./FeatureMovie.module.css";
 import PollIcon from "@mui/icons-material/Poll";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 
 function FeatureTV() {
-  const { api } = useContext(authContext);
+  // const { api } = useContext(authContext);
   const [FeatureTV, setFeatureTV] = useState(null);
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${api.key}`)
+    fetch(
+      `https://api.themoviedb.org/3/discover/tv?api_key=${process.env.REACT_APP_APIKEY}`
+    )
       .then((res) => {
         return res.json();
       })

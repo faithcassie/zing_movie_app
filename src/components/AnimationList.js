@@ -1,14 +1,14 @@
 import { Box, Typography } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
-import { authContext } from "../contexts/AuthContext";
+// import { authContext } from "../contexts/AuthContext";
 import NetflixSlider from "./NetflixSlider";
 
-function AnimationList() {
-  const { api } = useContext(authContext);
+function AnimationList({ enpoint, query }) {
+  // const { api } = useContext(authContext);
   const [animationMovie, setAnimationMovie] = useState(null);
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${api.key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_APIKEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=16`
     )
       .then((res) => {
         return res.json();
