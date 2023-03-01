@@ -4,7 +4,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
 import PollIcon from "@mui/icons-material/Poll";
-// import { authContext } from "../contexts/AuthContext";
+import { authContext } from "../contexts/AuthContext";
 
 const style = {
   position: "absolute",
@@ -27,7 +27,7 @@ const style = {
 function TvModal() {
   const location = useLocation();
   console.log(location);
-  // const { api } = useContext(authContext);
+  const { api } = useContext(authContext);
   const navigate = useNavigate();
   const [tv, setTv] = useState(null);
   const handleClose = () => {
@@ -35,7 +35,7 @@ function TvModal() {
   };
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3${location.pathname}?api_key=${process.env.REACT_APP_APIKEY}&language=en-US`
+      `https://api.themoviedb.org/3${location.pathname}?api_key=${api.key}&language=en-US`
     )
       .then((res) => {
         return res.json();

@@ -9,7 +9,7 @@ function TrendingPage() {
 
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/trending/all/week?api_key=${process.env.REACT_APP_APIKEY}&include_adult=false`
+      `https://api.themoviedb.org/3/trending/all/week?api_key=${api.key}&include_adult=false`
     )
       .then((res) => {
         return res.json();

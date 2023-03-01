@@ -2,15 +2,15 @@
 import { Card, CardHeader, Divider, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useContext, useEffect, useState } from "react";
-// import { authContext } from "../contexts/AuthContext";
+import { authContext } from "../contexts/AuthContext";
 import MovieCard from "./MovieCard";
 
 function NewRelease() {
-  // const { api } = useContext(authContext);
+  const { api } = useContext(authContext);
   const [newMovie, setNewMovie] = useState(null);
   useEffect(() => {
     fetch(
-      `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_APIKEY}&language=en-US&sort_by=popularity.descc&include_video=false&page=3&with_watch_monetization_types=flatrate`
+      `https://api.themoviedb.org/3/discover/movie?api_key=${api.key}&language=en-US&sort_by=popularity.descc&include_video=false&page=3&with_watch_monetization_types=flatrate`
     )
       .then((res) => {
         return res.json();
