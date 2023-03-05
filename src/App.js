@@ -17,7 +17,7 @@ import SearchPage from "./pages/SearchPage";
 function App() {
   const location = useLocation();
   const state = location.state;
-
+  //localhost:3000/search type=search
   return (
     <AuthContext>
       <ThemeProvider>
@@ -28,9 +28,10 @@ function App() {
             <Route path="search" element={<SearchPage />} />
             <Route path="trending" element={<TrendingPage />} />
             <Route path="movie" element={<MoviePage />}>
-              <Route path="movie/:id" element={<MovieDetails />} />
+              <Route path="movie/details/:id" element={<MovieDetails />} />
             </Route>
-            <Route path="tvshow" element={<TvshowPage />} />
+            <Route path="tv" element={<TvshowPage />} />
+            {/* <Route path="/:type" element={<TvshowPage />} /> */}
             <Route path="*" element={<ErrorPage />} />
           </Route>
         </Routes>

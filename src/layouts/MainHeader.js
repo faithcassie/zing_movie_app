@@ -80,7 +80,7 @@ function MainHeader() {
                 Movie
               </NavLink>
               <NavLink
-                to="/tvshow"
+                to="/tv"
                 className={({ isActive }) =>
                   isActive ? "link active" : "link"
                 }

@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { authContext } from "../contexts/AuthContext";
 
 function DropdownSelect(list) {
-  const [genreSelect, setGenreSelect] = useState("");
+  const [genreSelect, setGenreSelect] = useState(list.list.genres[0].id);
   const handleChange = (event) => {
     setGenreSelect(event.target.value);
   };
@@ -13,10 +13,11 @@ function DropdownSelect(list) {
       labelId="select-label"
       id="simple-select"
       value={genreSelect}
-      defaultValue={list.list.genres[0].name}
+      // defaultValue={list.list.genres[0].id}
       // label="Genre"
       onChange={handleChange}
       style={{
+        position: "relative",
         marginTop: 100,
         marginLeft: 0,
         // padding: "10px",
@@ -26,13 +27,10 @@ function DropdownSelect(list) {
       }}
     >
       {list.list.genres.map((genre) => (
-        <MenuItem value={genre.id}>{genre.name}</MenuItem>
+        <MenuItem key={genre.id} value={genre.id}>
+          {genre.name}
+        </MenuItem>
       ))}
-      {/* <MenuItem value={1}>Jan</MenuItem>
-      <MenuItem value={2}>Feb</MenuItem>
-      <MenuItem value={3}>March</MenuItem>
-      <MenuItem value={4}>April</MenuItem>
-      <MenuItem value={5}>May</MenuItem> */}
     </Select>
   );
 }

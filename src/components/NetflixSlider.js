@@ -4,9 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Box, Card, CardActionArea, Chip, Typography } from "@mui/material";
 import "./SliderContainer.css";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function NetflixSlider(children) {
+  const location = useLocation();
   const navigate = useNavigate();
   const [hoveredItem, setHoveredItem] = useState(null);
 
@@ -62,11 +63,11 @@ function NetflixSlider(children) {
               onClick={() => {
                 if (!result.media_type || result.media_type === "movie") {
                   navigate(`movie/${result.id}`, {
-                    state: { backgroundLocation: { pathname: "" } },
+                    state: { backgroundLocation: location },
                   });
                 } else {
                   navigate(`tv/${result.id}`, {
-                    state: { backgroundLocation: { pathname: "" } },
+                    state: { backgroundLocation: location },
                   });
                 }
               }}

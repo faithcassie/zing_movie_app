@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import DropdownSelect from "../components/DropdownSelect";
 import FeatureTV from "../components/FeatureTV";
+import PopularList from "../components/PopularList";
 import { authContext } from "../contexts/AuthContext";
 
 function TvshowPage() {
