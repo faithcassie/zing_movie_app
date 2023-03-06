@@ -27,10 +27,17 @@ function TvshowPage() {
   console.log(movieList);
   return (
     <Box>
-      <Box sx={{ position: "fixed", top: "0", left: "10%", zIndex: "9" }}>
+      <FeatureTV />
+      <Box
+        sx={{
+          position: "block",
+          paddingTop: 10,
+          paddingLeft: "10%",
+          zIndex: "9",
+        }}
+      >
         {movieList && <DropdownSelect list={movieList} />}
       </Box>
-      <FeatureTV />
     </Box>
   );
 }

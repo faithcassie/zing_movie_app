@@ -32,16 +32,20 @@ function MainHeader() {
           className={classes.navbar}
           sx={{
             display: "flex",
-            justifyItems: "space-between",
             marginTop: "20px",
             mx: "auto",
-
             width: "80%",
-            justifyContent: "center",
-            textAlign: "center",
+            // backgroundColor: "blue",
           }}
+          disableGutters
         >
-          <Box sx={{ display: { xs: "none", md: "flex" }, flexGrow: 1 }}>
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              flexGrow: 1,
+              // backgroundColor: "green",
+            }}
+          >
             <Logo />
           </Box>
           <Box
@@ -52,6 +56,7 @@ function MainHeader() {
               justifyContent: "center",
               alignItems: "center",
               width: "100%",
+              // backgroundColor: "yellow",
             }}
           >
             <Box>
@@ -142,18 +147,45 @@ function MainHeader() {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <NavLink to="/trending" className="linkk">
+                <NavLink
+                  to="/trending"
+                  className={({ isActive }) =>
+                    isActive ? "link active" : "link"
+                  }
+                >
                   Trending
                 </NavLink>
               </MenuItem>
               <MenuItem>
-                <NavLink to="/movie" className="linkk">
+                <NavLink
+                  to="/movie"
+                  className={({ isActive }) =>
+                    isActive ? "link active" : "link"
+                  }
+                >
                   Movie
                 </NavLink>
               </MenuItem>
               <MenuItem>
-                <NavLink className="linkk">Log Out</NavLink>
+                <NavLink
+                  to="/tv"
+                  className={({ isActive }) =>
+                    isActive ? "link active" : "link"
+                  }
+                >
+                  TV Show
+                </NavLink>
               </MenuItem>
+              {/* <MenuItem>
+                <NavLink
+                  to="#"
+                  className={({ isActive }) =>
+                    isActive ? "link active" : "link"
+                  }
+                >
+                  Log Out
+                </NavLink>
+              </MenuItem> */}
             </Menu>
           </Box>
           <Box
