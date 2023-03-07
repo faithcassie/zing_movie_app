@@ -12,8 +12,9 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   //   margin: "auto",
-  padding: "3rem",
-  width: { lg: 700, md: 600, sm: 500, xs: 400 },
+  padding: "2rem",
+  // paddingX: "3rem",
+  width: { lg: 700, md: "80%", xs: "90%" },
   //   textAlign: "center",
   display: "flex",
   flexDirection: "column",
@@ -29,6 +30,7 @@ const style = {
 };
 function MovieModal() {
   const params = useParams();
+  console.log(params);
   const { id } = params;
   const { api } = useContext(authContext);
   const navigate = useNavigate();

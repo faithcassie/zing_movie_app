@@ -23,7 +23,7 @@ function AnimationList({ enpoint, query }) {
   return (
     <>
       {animationMovie ? (
-        <Box sx={{ paddingLeft: "10%", height: "320px", paddingTop: "2rem" }}>
+        <Box sx={{ paddingLeft: "10%", height: "320px", paddingTop: "3rem" }}>
           <Typography sx={{ paddingY: "15px" }} variant="h5">
             Animation
           </Typography>

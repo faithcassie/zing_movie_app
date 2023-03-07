@@ -13,7 +13,7 @@ const style = {
   transform: "translate(-50%, -50%)",
   //   margin: "auto",
   padding: "3rem",
-  width: { lg: 700, md: 600, sm: 500, xs: 400 },
+  width: { lg: "70%", md: "80%", xs: "90%" },
   //   textAlign: "center",
   display: "flex",
   flexDirection: "column",
