@@ -61,7 +61,7 @@ function SearchPage() {
                 <Card
                   key={result.id}
                   sx={{
-                    margin: "auto",
+                    // margin: "auto",
                     width: "300px",
                     height: "200px",
                     marginBottom: "20px",

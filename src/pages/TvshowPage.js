@@ -3,14 +3,14 @@ import React, { useContext, useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
 import DropdownSelect from "../components/DropdownSelect";
 import FeatureTV from "../components/FeatureTV";
-import PopularList from "../components/PopularList";
+// import PopularList from "../components/PopularList";
 import { authContext } from "../contexts/AuthContext";
 
 function TvshowPage() {
   const { api } = useContext(authContext);
-  const [movieList, setMovieList] = useState(null);
+  const [itemList, setitemList] = useState(null);
   const params = useParams();
-  const location = useLocation(); // "/tvshow" "/movie";
+  const location = useLocation(); // "/tv" "/movie";
   const { type } = params;
   let endpoint = location.pathname.slice(1);
   useEffect(() => {
@@ -20,11 +20,11 @@ function TvshowPage() {
         return res.json();
       })
       .then((data) => {
-        setMovieList(data);
+        setitemList(data);
         console.log(data);
       });
   }, []);
-  console.log(movieList);
+  console.log(itemList);
   return (
     <Box>
       <FeatureTV />
@@ -36,7 +36,7 @@ function TvshowPage() {
           zIndex: "9",
         }}
       >
-        {movieList && <DropdownSelect list={movieList} />}
+        {itemList && <DropdownSelect list={itemList} />}
       </Box>
     </Box>
   );
