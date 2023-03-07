@@ -26,6 +26,7 @@ function SearchContainer() {
       </button>
       <input
         type="text"
+        value={searchQuery}
         className={classes.inputsearch}
         placeholder="Search..."
         onChange={(e) => setSearchQuery(e.target.value)}

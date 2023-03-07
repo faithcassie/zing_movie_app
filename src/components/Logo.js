@@ -12,7 +12,7 @@ function Logo() {
       }}
     >
       <Link to="/">
-        <img src="./white-zing-logo.svg" width={100} height="auto" />
+        <img src="./white-zing-logo.svg" width="100px" height="auto" />
       </Link>
     </Box>
   );

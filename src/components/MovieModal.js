@@ -11,15 +11,10 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  //   margin: "auto",
   padding: "2rem",
-  // paddingX: "3rem",
-  width: { lg: 700, md: "80%", xs: "90%" },
-  //   textAlign: "center",
+  width: { lg: "70%", md: "80%", xs: "90%" },
   display: "flex",
   flexDirection: "column",
-  //   alignItems: "center",
-  //   justifyContent: "center",
   backgroundColor: "rgba(0,0,0,0.8)",
   borderRadius: "15px",
   border: "2px solid #000",
@@ -49,10 +44,10 @@ function MovieModal() {
         setMovie(data);
       });
   }, []);
-  console.log(movie);
-  if (movie) {
-    console.log(movie.genres[0].name);
-  }
+  // console.log(movie);
+  // if (movie) {
+  //   console.log(movie.genres[0].name);
+  // }
   return (
     <Modal open={true} onClose={handleClose} disableAutoFocus>
       <Box component="div" sx={style}>
