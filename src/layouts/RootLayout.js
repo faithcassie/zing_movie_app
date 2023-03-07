@@ -7,7 +7,7 @@ import MainHeader from "./MainHeader";
 
 function RootLayout() {
   return (
-    <Stack sx={{ minHeight: "100vh" }}>
+    <Stack sx={{ minHeight: "100vh", width: "100vw", overflow: "hidden" }}>
       <MainHeader />
       <main>
         <Outlet />

@@ -21,8 +21,8 @@ function SearchContainer() {
 
   return (
     <div className={classes.searchbox}>
-      <button className={classes.btnsearch}>
-        <SearchIcon onClick={HandleSearchButton} />
+      <button className={classes.btnsearch} onClick={HandleSearchButton}>
+        <SearchIcon />
       </button>
       <input
         type="text"
