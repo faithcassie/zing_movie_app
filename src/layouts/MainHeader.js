@@ -114,10 +114,18 @@ function MainHeader() {
               </Button>
             </Box>
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" }, mr: 2 }}>
+          <Box sx={{ display: { xs: "flex", md: "none" }, mr: "5px" }}>
             <Logo />
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              display: { xs: "flex", md: "none" },
+              // flexGrow: 1,
+              position: "absolute",
+              left: 0,
+              top: "2.5rem",
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
