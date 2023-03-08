@@ -184,16 +184,6 @@ function MainHeader() {
                   TV Show
                 </NavLink>
               </MenuItem>
-              {/* <MenuItem>
-                <NavLink
-                  to="#"
-                  className={({ isActive }) =>
-                    isActive ? "link active" : "link"
-                  }
-                >
-                  Log Out
-                </NavLink>
-              </MenuItem> */}
             </Menu>
           </Box>
           <Box

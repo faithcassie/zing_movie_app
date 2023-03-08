@@ -13,10 +13,12 @@ import classes from "./FeatureMovie.module.css";
 import MovieIcon from "@mui/icons-material/Movie";
 import PollIcon from "@mui/icons-material/Poll";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
+import { useNavigate } from "react-router-dom";
 
 function Feature() {
   const { api } = useContext(authContext);
   const [feature, setFeature] = useState(null);
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${api.key}`)
       .then((res) => {
@@ -28,7 +30,7 @@ function Feature() {
       });
   }, []);
   if (feature) {
-    console.log(feature);
+    console.log(feature.results[0].id);
   }
   return (
     <>
@@ -87,7 +89,14 @@ function Feature() {
                   text={feature.results[0].overview}
                 />
               </Typography>
-              <Button variant="outlined">Learn More</Button>
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  navigate(`details/${feature.results[0].id}`);
+                }}
+              >
+                Learn More
+              </Button>
             </CardContent>
           </Card>
         </Box>

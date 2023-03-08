@@ -13,6 +13,7 @@ import ErrorPage from "./pages/ErrorPage";
 import MovieModal from "./components/MovieModal";
 import TvModal from "./components/TvModal";
 import SearchPage from "./pages/SearchPage";
+import DetailsPage from "./pages/DetailsPage";
 
 function App() {
   const location = useLocation();
@@ -22,15 +23,17 @@ function App() {
     <AuthContext>
       <ThemeProvider>
         {/* <RouterProvider router={router} /> */}
-        <Routes location={state?.backgroundLocation || location}>
+        {/* location={state?.backgroundLocation || location} */}
+        <Routes>
           <Route path="/" element={<RootLayout />}>
             <Route index element={<HomePage />} />
             <Route path="search" element={<SearchPage />} />
             <Route path="trending" element={<TrendingPage />} />
             <Route path="movie" element={<MoviePage />} />
-            <Route path="movie/details/:id" element={<MovieDetails />} />
+            {/* <Route path="movie/:id" element={<DetailsPage />} /> */}
             <Route path="tv" element={<TvshowPage />} />
-            <Route path="tv/details/:id" element={<MovieDetails />} />
+            <Route path="details/:id" element={<DetailsPage />} />
+
             {/* <Route path="/:type" element={<TvshowPage />} /> */}
             <Route path="*" element={<ErrorPage />} />
           </Route>

@@ -7,7 +7,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import { authContext } from "../contexts/AuthContext";
 
 function TrendingPage() {
@@ -69,12 +69,15 @@ function TrendingPage() {
               }}
             >
               <CardActionArea
+                // onClick={() => {
+                //   if (!result.media_type || result.media_type === "movie") {
+                //     navigate(`movie/${result.id}`);
+                //   } else {
+                //     navigate(`tv/${result.id}`);
+                //   }
+                // }}
                 onClick={() => {
-                  if (!result.media_type || result.media_type === "movie") {
-                    navigate(`movie/details/${result.id}`);
-                  } else {
-                    navigate(`tv/details/${result.id}`);
-                  }
+                  navigate(`/details/${result.id}`);
                 }}
               >
                 {result.backdrop_path ? (
