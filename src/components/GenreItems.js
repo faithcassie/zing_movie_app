@@ -43,7 +43,7 @@ function GenreItems({ genreSelect }) {
             flexWrap: "wrap",
             justifyContent: "space-between",
             justifyItems: "center",
-            alignItems: "center",
+            alignItems: "start",
           }}
         >
           {genreItems.results.map((genreItem) => (
@@ -51,9 +51,8 @@ function GenreItems({ genreSelect }) {
               key={genreItem.id}
               sx={{
                 width: "100%",
-                // margin: 0,
                 width: { xs: "100%", md: "225px" },
-                height: { xs: "auto", md: "150px" },
+                height: "auto",
                 marginBottom: "20px",
                 marginBottom: "20px",
               }}
@@ -68,7 +67,7 @@ function GenreItems({ genreSelect }) {
                 ) : (
                   <img src="imagenotfound.png" width="100%" />
                 )}
-                <Typography variant="body2">
+                <Typography variant="body2" sx={{ height: "fit-content" }}>
                   {genreItem.title || genreItem.name}
                 </Typography>
               </CardActionArea>

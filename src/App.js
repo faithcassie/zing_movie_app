@@ -27,10 +27,10 @@ function App() {
             <Route index element={<HomePage />} />
             <Route path="search" element={<SearchPage />} />
             <Route path="trending" element={<TrendingPage />} />
-            <Route path="movie" element={<MoviePage />}>
-              <Route path="movie/details/:id" element={<MovieDetails />} />
-            </Route>
+            <Route path="movie" element={<MoviePage />} />
+            <Route path="movie/details/:id" element={<MovieDetails />} />
             <Route path="tv" element={<TvshowPage />} />
+            <Route path="tv/details/:id" element={<MovieDetails />} />
             {/* <Route path="/:type" element={<TvshowPage />} /> */}
             <Route path="*" element={<ErrorPage />} />
           </Route>

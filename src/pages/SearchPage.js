@@ -1,20 +1,26 @@
-import { Card, CardMedia, Typography } from "@mui/material";
+import {
+  Card,
+  CardActionArea,
+  CardMedia,
+  Pagination,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../contexts/AuthContext";
 
 function SearchPage() {
   const location = useLocation();
-  //   console.log(location);
+  const navigate = useNavigate();
+  const [page, setPage] = useState(1);
   const query = new URLSearchParams(location.search);
   const q = query.get("q"); // "avatar"
   const { api } = useContext(authContext);
   const [searchResult, setSearchResult] = useState("");
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/search/multi?api_key=${api.key}&language=en-US&query=${q}&page=1&include_adult=false`
-    )
+    let url = `https://api.themoviedb.org/3/search/multi?api_key=${api.key}&language=en-US&query=${q}&page=${page}&include_adult=false`;
+    fetch(url)
       .then((res) => {
         return res.json();
       })
@@ -22,13 +28,11 @@ function SearchPage() {
         setSearchResult(data);
         console.log(data);
       });
-  }, [q]);
-  //   if (searchResult) {
-  //     console.log(searchResult.results[0].title);
-  //   }
-  //   console.log(
-  //     `https://api.themoviedb.org/3/search/multi?api_key=${api.key}&language=en-US&query=${q}&page=1&include_adult=false`
-  //   );
+  }, [q, page]);
+  const handleChange = (event, value) => {
+    setPage(value);
+  };
+
   return (
     <Box
       component="div"
@@ -50,35 +54,48 @@ function SearchPage() {
           width: "100%",
           flexWrap: "wrap",
           paddingTop: "50px",
+          justifyContent: "space-between",
           justifyItems: "center",
-          alignItems: "center",
+          alignItems: "start",
         }}
       >
         {searchResult &&
-          searchResult.results.map(
-            (result) =>
-              result.backdrop_path && (
-                <Card
-                  key={result.id}
-                  sx={{
-                    // margin: "auto",
-                    width: "300px",
-                    height: "200px",
-                    marginBottom: "20px",
-                  }}
-                >
+          searchResult.results.map((result) => (
+            <Card
+              key={result.id}
+              sx={{
+                width: "100%",
+                width: { xs: "100%", md: "225px" },
+                height: "auto",
+                marginBottom: "20px",
+                marginBottom: "20px",
+              }}
+            >
+              <CardActionArea
+                onClick={() => {
+                  if (!result.media_type || result.media_type === "movie") {
+                    navigate(`movie/details/${result.id}`);
+                  } else {
+                    navigate(`tv/details/${result.id}`);
+                  }
+                }}
+              >
+                {result.backdrop_path ? (
                   <CardMedia
                     sx={{ width: "100%", height: "auto" }}
                     component="img"
                     image={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
                   />
+                ) : (
+                  <img src="imagenotfound.png" width="100%" />
+                )}
 
-                  <Typography variant="body1">
-                    {result.title || result.name}
-                  </Typography>
-                </Card>
-              )
-          )}
+                <Typography variant="body1">
+                  {result.title || result.name}
+                </Typography>
+              </CardActionArea>
+            </Card>
+          ))}
 
         {!searchResult.results?.length && (
           <Typography
@@ -88,6 +105,12 @@ function SearchPage() {
             There is no result.
           </Typography>
         )}
+        <Pagination
+          count={5}
+          page={page}
+          onChange={handleChange}
+          sx={{ mx: "auto", marginY: "20px" }}
+        />
       </Box>
     </Box>
   );
