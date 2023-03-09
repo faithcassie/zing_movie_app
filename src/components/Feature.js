@@ -92,7 +92,14 @@ function Feature() {
               <Button
                 variant="outlined"
                 onClick={() => {
-                  navigate(`details/${feature.results[0].id}`);
+                  const params = new URLSearchParams([
+                    ["media_type", feature.results[0].media_type],
+                    ["id", feature.results[0].id],
+                  ]);
+                  navigate({
+                    pathname: `/details`,
+                    search: `?${params}`,
+                  });
                 }}
               >
                 Learn More

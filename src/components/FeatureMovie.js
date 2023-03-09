@@ -12,9 +12,11 @@ import TextTruncate from "react-text-truncate";
 import classes from "./FeatureMovie.module.css";
 import MovieIcon from "@mui/icons-material/Movie";
 import PollIcon from "@mui/icons-material/Poll";
+import { useNavigate } from "react-router-dom";
 
 function FeatureMovie() {
   const { api } = useContext(authContext);
+  const navigate = useNavigate();
   const [featureMovie, setFeatureMovie] = useState(null);
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${api.key}`)
@@ -71,7 +73,21 @@ function FeatureMovie() {
                   text={featureMovie.results[0].overview}
                 />
               </Typography>
-              <Button variant="outlined">Learn More</Button>
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  const params = new URLSearchParams([
+                    ["media_type", "movie"],
+                    ["id", featureMovie.results[0].id],
+                  ]);
+                  navigate({
+                    pathname: `/details`,
+                    search: `?${params}`,
+                  });
+                }}
+              >
+                Learn More
+              </Button>
             </CardContent>
           </Card>
         </Box>

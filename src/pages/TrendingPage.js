@@ -69,15 +69,15 @@ function TrendingPage() {
               }}
             >
               <CardActionArea
-                // onClick={() => {
-                //   if (!result.media_type || result.media_type === "movie") {
-                //     navigate(`movie/${result.id}`);
-                //   } else {
-                //     navigate(`tv/${result.id}`);
-                //   }
-                // }}
                 onClick={() => {
-                  navigate(`/details/${result.id}`);
+                  const params = new URLSearchParams([
+                    ["media_type", result.media_type],
+                    ["id", result.id],
+                  ]);
+                  navigate({
+                    pathname: `/details`,
+                    search: `?${params}`,
+                  });
                 }}
               >
                 {result.backdrop_path ? (

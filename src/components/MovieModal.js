@@ -91,7 +91,20 @@ function MovieModal() {
             {movie.overview}
           </Typography>
         )}
-        <Button variant="outlined" sx={{ width: { xs: "100%", md: "40%" } }}>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            const params = new URLSearchParams([
+              ["media_type", "movie"],
+              ["id", movie.id],
+            ]);
+            navigate({
+              pathname: `/details`,
+              search: `?${params}`,
+            });
+          }}
+          sx={{ width: { xs: "100%", md: "40%" } }}
+        >
           Learn More
         </Button>
       </Box>

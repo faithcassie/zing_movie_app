@@ -10,7 +10,7 @@ import React from "react";
 
 function MainFooter() {
   return (
-    <Box marginTop="50px">
+    <Box>
       <List sx={{ display: "flex", justifyContent: "center" }}>
         <ListItem>
           <ListItemButton component="a" href="#">

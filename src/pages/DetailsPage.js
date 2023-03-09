@@ -4,7 +4,7 @@ import MovieDetails from "../components/MovieDetails";
 
 function DetailsPage() {
   return (
-    <Box sx={{ height: "100vh" }}>
+    <Box>
       <MovieDetails />
     </Box>
   );

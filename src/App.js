@@ -24,7 +24,7 @@ function App() {
       <ThemeProvider>
         {/* <RouterProvider router={router} /> */}
         {/* location={state?.backgroundLocation || location} */}
-        <Routes>
+        <Routes location={state?.backgroundLocation || location}>
           <Route path="/" element={<RootLayout />}>
             <Route index element={<HomePage />} />
             <Route path="search" element={<SearchPage />} />
@@ -32,8 +32,7 @@ function App() {
             <Route path="movie" element={<MoviePage />} />
             {/* <Route path="movie/:id" element={<DetailsPage />} /> */}
             <Route path="tv" element={<TvshowPage />} />
-            <Route path="details/:id" element={<DetailsPage />} />
-
+            <Route path="details" element={<DetailsPage />} />
             {/* <Route path="/:type" element={<TvshowPage />} /> */}
             <Route path="*" element={<ErrorPage />} />
           </Route>

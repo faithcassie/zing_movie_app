@@ -83,7 +83,20 @@ function TvModal() {
             {tv.overview}
           </Typography>
         )}
-        <Button variant="outlined" sx={{ width: "30%" }}>
+        <Button
+          variant="outlined"
+          sx={{ width: "30%" }}
+          onClick={() => {
+            const params = new URLSearchParams([
+              ["media_type", "tv"],
+              ["id", tv.id],
+            ]);
+            navigate({
+              pathname: `/details`,
+              search: `?${params}`,
+            });
+          }}
+        >
           Learn More
         </Button>
       </Box>

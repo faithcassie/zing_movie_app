@@ -6,18 +6,20 @@ import {
   Pagination,
   Typography,
 } from "@mui/material";
-import { Box, height } from "@mui/system";
+import { Box } from "@mui/system";
 import React, { useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../contexts/AuthContext";
 
 function GenreItems({ genreSelect }) {
   //   console.log(typeof genreSelect);
+  const navigate = useNavigate();
   const { api } = useContext(authContext);
   const [genreItems, setGenreItems] = useState("");
   const [page, setPage] = useState(1);
   const location = useLocation(); // "/tv" "/movie";
   let endpoint = location.pathname.slice(1);
+  console.log(endpoint);
   useEffect(() => {
     let url = `https://api.themoviedb.org/3/discover/${endpoint}?api_key=${api.key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=${page}&with_genres=${genreSelect}`;
     fetch(url)
@@ -32,7 +34,9 @@ function GenreItems({ genreSelect }) {
   const handleChange = (event, value) => {
     setPage(value);
   };
-
+  if (genreItems) {
+    console.log(genreItems);
+  }
   return (
     <Box sx={{ width: "100vw", paddingTop: "30px" }}>
       {genreItems && (
@@ -57,7 +61,18 @@ function GenreItems({ genreSelect }) {
                 marginBottom: "20px",
               }}
             >
-              <CardActionArea>
+              <CardActionArea
+                onClick={() => {
+                  const params = new URLSearchParams([
+                    ["media_type", endpoint],
+                    ["id", genreItem.id],
+                  ]);
+                  navigate({
+                    pathname: `/details`,
+                    search: `?${params}`,
+                  });
+                }}
+              >
                 {genreItem.backdrop_path ? (
                   <CardMedia
                     sx={{ width: "100%", opacity: "90%" }}

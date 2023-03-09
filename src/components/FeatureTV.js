@@ -12,9 +12,11 @@ import TextTruncate from "react-text-truncate";
 import classes from "./FeatureMovie.module.css";
 import PollIcon from "@mui/icons-material/Poll";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
+import { useNavigate } from "react-router-dom";
 
 function FeatureTV() {
   const { api } = useContext(authContext);
+  const navigate = useNavigate();
   const [FeatureTV, setFeatureTV] = useState(null);
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/discover/tv?api_key=${api.key}`)
@@ -71,7 +73,22 @@ function FeatureTV() {
                   text={FeatureTV.results[0].overview}
                 />
               </Typography>
-              <Button variant="outlined">Learn More</Button>
+              <Button
+                variant="outlined"
+                onClick={() => {
+                  const params = new URLSearchParams([
+                    ["media_type", "tv"],
+                    ["id", FeatureTV.results[0].id],
+                  ]);
+                  navigate({
+                    pathname: `/details`,
+                    search: `?${params}`,
+                  });
+                }}
+              >
+                {" "}
+                Learn More
+              </Button>
             </CardContent>
           </Card>
         </Box>

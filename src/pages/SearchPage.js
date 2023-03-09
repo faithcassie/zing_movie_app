@@ -12,6 +12,7 @@ import { authContext } from "../contexts/AuthContext";
 
 function SearchPage() {
   const location = useLocation();
+  console.log(location);
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
   const query = new URLSearchParams(location.search);
@@ -73,11 +74,14 @@ function SearchPage() {
             >
               <CardActionArea
                 onClick={() => {
-                  if (!result.media_type || result.media_type === "movie") {
-                    navigate(`movie/details/${result.id}`);
-                  } else {
-                    navigate(`tv/details/${result.id}`);
-                  }
+                  const params = new URLSearchParams([
+                    ["media_type", result.media_type],
+                    ["id", result.id],
+                  ]);
+                  navigate({
+                    pathname: `/details`,
+                    search: `?${params}`,
+                  });
                 }}
               >
                 {result.backdrop_path ? (
