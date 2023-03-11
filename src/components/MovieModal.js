@@ -44,10 +44,7 @@ function MovieModal() {
         setMovie(data);
       });
   }, []);
-  // console.log(movie);
-  // if (movie) {
-  //   console.log(movie.genres[0].name);
-  // }
+
   return (
     <Modal open={true} onClose={handleClose} disableAutoFocus>
       <Box component="div" sx={style}>

@@ -31,7 +31,7 @@ function MoviePage() {
         sx={{
           position: "block",
           paddingTop: 10,
-          paddingLeft: "10%",
+          // paddingLeft: "10%",
           zIndex: "9",
         }}
       >

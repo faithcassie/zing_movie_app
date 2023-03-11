@@ -158,7 +158,7 @@ function MainHeader() {
                 <NavLink
                   to="/trending"
                   className={({ isActive }) =>
-                    isActive ? "link active" : "link"
+                    isActive ? "linkk active" : "linkk"
                   }
                 >
                   Trending
@@ -168,7 +168,7 @@ function MainHeader() {
                 <NavLink
                   to="/movie"
                   className={({ isActive }) =>
-                    isActive ? "link active" : "link"
+                    isActive ? "link active" : "linkk"
                   }
                 >
                   Movie
@@ -178,10 +178,20 @@ function MainHeader() {
                 <NavLink
                   to="/tv"
                   className={({ isActive }) =>
-                    isActive ? "link active" : "link"
+                    isActive ? "linkk active" : "linkk"
                   }
                 >
                   TV Show
+                </NavLink>
+              </MenuItem>
+              <MenuItem>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? "link active" : "linkk"
+                  }
+                >
+                  Log Out
                 </NavLink>
               </MenuItem>
             </Menu>

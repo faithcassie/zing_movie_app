@@ -49,9 +49,10 @@ function TrendingPage() {
         sx={{
           display: "flex",
           width: "100%",
+          marginX: "auto",
           flexWrap: "wrap",
           paddingTop: "50px",
-          justifyContent: "space-between",
+          justifyContent: "left",
           justifyItems: "center",
           alignItems: "start",
         }}
@@ -61,11 +62,10 @@ function TrendingPage() {
             <Card
               key={result.id}
               sx={{
-                width: "100%",
-                width: { xs: "100%", md: "225px" },
+                width: { sm: "100%", md: "200px", lg: "225px" },
                 height: "auto",
                 marginBottom: "20px",
-                marginBottom: "20px",
+                marginLeft: "30px",
               }}
             >
               <CardActionArea

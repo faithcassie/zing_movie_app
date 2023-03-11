@@ -11,9 +11,11 @@ function DropdownSelect(list) {
     setGenreSelect(event.target.value);
   };
   return (
-    <Box>
+    <Box sx={{ width: "100%" }}>
       <Box sx={{ display: "flex" }}>
-        <Typography variant="h6">Filter by Genre:</Typography>
+        <Typography variant="h6" sx={{ paddingLeft: "10%" }}>
+          Filter by Genre:
+        </Typography>
         <Select
           labelId="select-label"
           id="simple-select"
