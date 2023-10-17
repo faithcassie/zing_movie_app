@@ -5,7 +5,9 @@ Zing Movie App is a web application that allows users to explore a wide range of
 ### Demo
 
 https://zing-tv.netlify.app/
-[](https://imgur.com/P4P4fmp)
+
+<img src="./public/zing-app-demo.gif" alt="spotlights demo" style="width:400px;"/>
+
 
 ### Getting Started
 
