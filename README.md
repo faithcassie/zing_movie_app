@@ -1,13 +1,27 @@
-## Zing Movie App
+# Zing Movie App
 
-### User Stories
+Zing Movie App is a web application that allows users to explore a wide range of movies, including the ability to paginate through movies, view movie details, filter movies by genre, search for movies, and enjoy a responsive user experience on various devices.
 
-Users can see many movies layout on the website
-Users can see paginate through all movies from the database
-Users can see the detail of one single movie in a separate page, then select a movie from the list
-Users can see information about the movie (authors, description, title, genres …)
-Users can see filter UI and can filter movies by genres
-Users can see search UI and can search movies in the database by keyword
-Users can see the website is responsive for the minimum of Desktop, iPhone, and Tablet
-Users can see routes that allow user to revisit the same display when using such routes
-# zing_movie_app
+### Demo
+
+https://zing-tv.netlify.app/
+[](https://imgur.com/P4P4fmp)
+
+### Getting Started
+
+To clone and set up the Zing Movie App locally, follow these steps:
+
+1. Install NodeJS and NPM from https://nodejs.org/en/download/.
+2. Download or clone the project source code from https://github.com/cornflourblue/react-redux-jwt-authentication-example
+3. Install all required npm packages by running npm install from the command line in the project root folder (where the package.json is located).
+4. Start the application by running npm start from the
+
+### Zing Movie Web App offers the following features:
+
+- Explore a vast collection of movies.
+- Paginate through movies from the database.
+- View detailed information about a single movie, including authors, descriptions, titles, genres, and more.
+- Utilize a user-friendly filter UI to narrow down movies by genre.
+- Search for movies in the database using keywords.
+- Experience a responsive design suitable for desktops, iPhones, and tablets.
+- Utilize routes to navigate and revisit specific displays.
